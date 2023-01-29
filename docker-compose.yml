@@ -1,0 +1,19 @@
+# docker-compose.yml
+
+services:
+
+  nginxserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: server
+    ports: 
+      - "8080:80"
+
+  nginxproxy:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: proxy
+    ports:
+      - "8081:80"
